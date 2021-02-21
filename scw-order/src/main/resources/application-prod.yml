@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    username: root
+    password: 6090
+    url: jdbc:mysql://192.168.64.131:3306/SCWFunding?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: SCW-ORDER
+  redis:
+    host: 192.168.64.131
+
+
+feign:
+  hystrix:
+    enabled: true
+
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.64.129:8761/eureka/
+  instance:
+    #appname: ORDER
+    prefer-ip-address: true
+
+
+server:
+  port: 9000
+
+
+swagger2:
+  enable: true

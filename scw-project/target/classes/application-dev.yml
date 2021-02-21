@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: SCW-PROJECT
+  datasource:
+    username: root
+    password: 6090
+    url: jdbc:mysql://192.168.64.131:3306/SCWFunding?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #    type: com.alibaba.druid.pool.DruidDataSource
+  #    filters: stat
+
+  redis:
+    host: 192.168.64.131
+    port: 6379
+  # 文件上传大小
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    appname: SCW-PROJECT
+    prefer-ip-address: true
+
+server:
+  port: 8000
+
+swagger2:
+  enable: true
+
+feign:
+  hystrix:
+    enabled: true
+
+oss:
+  endpoint: oss-cn-shenzhen.aliyuncs.com
+  accessKeyId: LTAI4GCo3GXSVxHd4aSSCN4C
+  accessKeySecret: fKnBEzDCfi07U04Vt9YtZC8X2bYKbq
+  bucketName: oypicbed
+  # 将其保存为指定bucket目录下的文件夹 例如: oypicbed/ossTest
+  objectName: ossTest

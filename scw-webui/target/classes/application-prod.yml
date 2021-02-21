@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: SCW-WEBUI
+
+  session:
+    store-type: redis
+
+  redis:
+    host: 192.168.64.131
+    port: 6379
+    #password: 123456
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false #开发的时候禁用缓存
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.64.129:8761/eureka/
+  instance:
+    appname: SCW-WEBUI
+    prefer-ip-address: true
+
+server:
+  port: 10000
+
+feign:
+  hystrix:
+    enabled: true
+
+# 重试机制
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  OkToRetryOnAllOperations: false
+
+alipay:
+  app_id: 2021000117611573
+  merchant_private_key: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDE1mgAQ6IQeKRKjGuSCF4enRZleYsxbYUjFVrFPJkpv7wwKYNo+rBkYtMB2HIKPCulS1v5sz0H3MZdvCQoQWpqBF3qVRHYq+NLGtG9Txe3U+/hiOL4q5YO7Rc61jgeEXhl7RCZOITMtE46+TDLwJDBWBvBJk3HggPPRsGmh+bL9s3RcfGmYYruorEZDJ6vuUEP0XqkzcLKE+lY9wkplI4MhY6RMLu9lt5FRpPdb01LAMDLS8fpXdKtLNTXZvA1NK/FpeY+o6Bae/Sc4GnN8kTOlc2w/ACNC+vkvkoCC9vwSDjS8bfps3/UI36OrCYAbjXXc+Oh+cTvP58GPayPv5AhAgMBAAECggEAIqzGi21eqlomTv+nn4Ub13bC0EN2EtIBRynm4KIJNUKSi0V04dRvqG+ETmnrxQPOiILbBATgNndc9nxDPlgvv9dfF/2+dBXrp3plAl1hhykhM/DiUv4fJCf+FJ5SKnHXbNUzPFqpgkotEdR+FRaqKXU1BnSR9RhhRW1ohcahEMLtYaZoaZsVT2zVvozClTDROMt5rV02lErF7ULOitgau0PXB90pMhRGE5SFwzemYFW4NfGa+hWG5g5AjfuPUyHT5Ejzv8bHrC36ooB5ye86+IO66zasjMPcAyIiyNvRcCB9HHSJcyR8SPgGWSrZD4vk86yHQqdFfqBlkAmjaNnJsQKBgQDoftw58/TofQ8FmvKkiawapA1DfULuNSmLsxKYJL4nv6uyZJ6FpYVNRTT3R5IanDEAgemQxo4KPQRUyDP49JmhNKdpojMu2yXVWR8HhZDUsRGti3XPenhX5A2II39K7352PYT+mhejKt3fy4VMV9m0yTZVsKpJ/VRdz/Cb9WhQlQKBgQDYvLFM/rE4jRHK3EOBnH8dpgv12vSUdxVg84Hyz8hfcLGhMpN5UhDPHPh1aNdrZ5BjOrsL7PCI1HLFGrR0rQieXOkcNEDqDxOgSPxtVqkKTCemY8xPuse24fnd/HiDsyiBNzb52D9A4Mn+FaKTn7vOyRGbWpp98NW4ME9AC2yiXQKBgHU//Rpw8LMK1reR9AqMr7HjyBigJE/zmZctYRQ/e3KaVCGsYtGtrvNQEq0eeA1ZddD2s27i46FAMl37dVJ5ML0+y6sXNM7NkF/vCRoG/wp0niCyc2CGOAjDJxvgIwMMku9YiSjJV2BfbvO9NOVSbKWiz/cZGFgmHRUOmB5e/hOdAoGACXR5250EyC3HR+1B+KaGGRoETY5muw9S3G7jDV+pIxi8dwbIzjMZTp+56w1O0H2tG9cVD9kfSSjTdOvMUYa26ImvFa7l4hAUUBq/AFoWd7+Iv0Z9REEms0C6cMexzjUDoFdzS4T2hXMI/M+ezwfZ3pSA8yEJulLGUAmze1zEOXUCgYAFSyDyWJczkkWmn/mhBBppjDA7b1X4oSFiuY4yudgYVjo5GxAEaSlg/M1lwMZjEN1zSB8yQk63KOj0TeWm5ln50Vp8ybJcgH3VbT0zg2kKD+QxDH+0em9vYNpooOtL93W4A3LQ5glSZNGPexNk11V4mMt/VqxC+NuC6fTgH3Xbzw==
+  alipay_public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtxPL9OeQwvB2LQZN7cNKp+mp8Suks2KNImMNyJX5QfmulKbV1CfENBw7sAPfaeRZCiwHkOGTBeB342fDEuBh7pJEKbpy0e9EJK7IAKbHOLRveAr8QSh2VRmr0XJ7157kix0jJIOzd92Cl+rIJpwOVudrFcl558wNFTx1B9BVPJM1/mciWSQhRXFeHWmLIvuuea/YGsf1nz5PhTFZPKZh2FjiFBDhGafJVDduPm1jOHlDXYLkWcnJXYhWs+6xDhc1Db+9jcSFFVqP6Og1lV3ks+t7xkoAxoOvYRwcl4PTtTRhWMVvuiKT0ZX/vB+d9fPaLGLjZ1ut7kBCivxNDujQJQIDAQAB
+  notify_url: http://192.168.64.129:10000/order/updateOrderStatus
+  return_url: http://192.168.64.129:10000/member/mineatcrowdfunding
+  sign_type: RSA2
+  charset: utf-8
+  gatewayUrl: https://openapi.alipaydev.com/gateway.do
