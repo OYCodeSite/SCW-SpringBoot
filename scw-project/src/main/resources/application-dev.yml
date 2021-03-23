@@ -43,8 +43,8 @@ feign:
 # accessKeyId、accessKeySecret 需要自己去配置阿里OSS
 oss:
   endpoint: oss-cn-shenzhen.aliyuncs.com
-  accessKeyId: LTAI4GCo******d4aSSCN4C
-  accessKeySecret: fKnBEz******9YtZC8X2bYKbq
+  accessKeyId: <yourAccessKeyId>
+  accessKeySecret: <yourAccessKeySecret>
   bucketName: oypicbed
   # 将其保存为指定bucket目录下的文件夹 例如: oypicbed/ossTest
   objectName: ossTest
